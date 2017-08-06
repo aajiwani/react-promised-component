@@ -27,7 +27,6 @@ If you want to have a look at generator
 <PromisedComponent
     promise_prop={this.promiseGenerator.bind(this)}
     promise_prop_params={this.promiseParams.bind(this)}
-    promise_prop_check_result_errors={this.checkErrorsInResult.bind(this)}
   />
 
 // promise_prop: the method that generates a new promise
