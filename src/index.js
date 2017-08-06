@@ -16,18 +16,7 @@ var ReactPromisedComponent = (
     this.setState({loading: true, error: null, value: null});
 
     this.props[promiseProp](params).then(
-      value => {
-        if (this.props.hasOwnProperty(promiseProp + '_check_result_errors'))
-        {
-          var resultError = this.props[promiseProp + '_check_result_errors'](value);
-          if (resultError)
-          {
-            this.setState({loading: false, error: resultError});
-            return;
-          }
-        }
-        this.setState({loading: false, value: value})
-      },
+      value => this.setState({loading: false, value: value})
       error => this.setState({loading: false, error: error})
     );
   }
