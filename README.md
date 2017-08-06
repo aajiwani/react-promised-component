@@ -21,6 +21,24 @@ yo react-promised-component
 If you want to have a look at generator
 [generator-react-promised-component](https://github.com/aajiwani/generator-react-promised-component)
 
+## Usage
+
+```js
+<PromisedComponent
+    promise_prop={this.promiseGenerator.bind(this)}
+    promise_prop_params={this.promiseParams.bind(this)}
+    promise_prop_check_result_errors={this.checkErrorsInResult.bind(this)}
+  />
+
+// promise_prop: the method that generates a new promise
+// promise_prop_params: the method that can generate parameters and magically supply it to promise creator
+// promise_prop_check_result_errors: the method to check for value, if for some reason value may contain any errors!
+```
+
+## Surprise
+
+You can leverage a retry on promise if you want to without any fuss. Please refer to this repo for more details.
+
 ## License
 
 MIT © [Amir Ali Jiwani]()
