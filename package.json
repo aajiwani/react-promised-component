@@ -1,11 +1,11 @@
 {
   "name": "react-promised-component",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A mechanism to generate promised base components in React",
   "main": "dist/index.js",
   "scripts": {
     "test": "exit 0",
-    "compile": "node node_modules/babel-cli/bin/babel.js src --out-dir dist",
+    "compile": "babel --no-babelrc --presets=es2015,stage-0,react src --out-dir dist --plugins=add-module-exports",
     "prepublish": "npm run compile",
     "prepare": "npm run compile"
   },
@@ -34,8 +34,9 @@
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1"
+    "babel-preset-stage-0": "^6.24.1"
   }
 }

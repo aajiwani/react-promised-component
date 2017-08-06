@@ -65,4 +65,4 @@ var ReactPromisedComponent = (
   }
 };
 
-module.exports = ReactPromisedComponent;
+export default ReactPromisedComponent;
