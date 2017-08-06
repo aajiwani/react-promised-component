@@ -68,9 +68,9 @@ var ReactPromisedComponent = (
     else
     {
       var propsWithoutThePromise = R.dissoc(promiseProp, this.props);
-      var result = {...this.state.value};
+      var result = { 'result': Object.assign({}, this.state.value) };
       return (
-        <SuccessComponent {...propsWithoutThePromise} result={result} />
+        <SuccessComponent {...propsWithoutThePromise} {...result} />
       );
     }
   }
