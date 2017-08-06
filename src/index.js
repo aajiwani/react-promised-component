@@ -16,7 +16,7 @@ var ReactPromisedComponent = (
     this.setState({loading: true, error: null, value: null});
 
     this.props[promiseProp](params).then(
-      value => this.setState({loading: false, value: value})
+      value => this.setState({loading: false, value: value}),
       error => this.setState({loading: false, error: error})
     );
   }
