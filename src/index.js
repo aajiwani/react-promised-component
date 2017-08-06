@@ -37,18 +37,18 @@ var ReactPromisedComponent = (
     if (nextProps[promiseProp + '_params'] !== this.props[promiseProp + '_params'])
     {
       // We are detecting a params change, we need to recall the promise
-      this.executePromise(nextProps[promiseProp + '_params']);
+      this.executePromise(nextProps[promiseProp + '_params']());
     }
   }
 
   retryPromise()
   {
-    this.executePromise(this.props[promiseProp + '_params']);
+    this.executePromise(this.props[promiseProp + '_params']());
   }
 
   componentWillMount()
   {
-    this.executePromise(this.props[promiseProp + '_params']);
+    this.executePromise(this.props[promiseProp + '_params']());
   }
 
   render()
