@@ -21,23 +21,24 @@ var ReactPromisedComponent = (
     );
   }
 
-  componentWillUpdate(nextProps, nextState)
+  getParams(props)
   {
-    if (nextProps[promiseProp + '_params'] !== this.props[promiseProp + '_params'])
+    var hasParams = R.has(promiseProp + '_params');
+    if (hasParams(props))
     {
-      // We are detecting a params change, we need to recall the promise
-      this.executePromise(nextProps[promiseProp + '_params']());
+      return (props[promiseProp + '_params'])();
     }
+    return null;
   }
 
   retryPromise()
   {
-    this.executePromise(this.props[promiseProp + '_params']());
+    this.executePromise(this.getParams(this.props));
   }
 
   componentWillMount()
   {
-    this.executePromise(this.props[promiseProp + '_params']());
+    this.executePromise(this.getParams(this.props));
   }
 
   render()
@@ -57,6 +58,12 @@ var ReactPromisedComponent = (
     else
     {
       var propsWithoutThePromise = R.dissoc(promiseProp, this.props);
+      var hasParams = R.has(promiseProp + '_params');
+      if (hasParams(propsWithoutThePromise))
+      {
+        propsWithoutThePromise = R.dissoc(promiseProp + '_params', propsWithoutThePromise);
+      }
+
       return (
         <SuccessComponent {...propsWithoutThePromise} result={this.state.value} />
       );
