@@ -1,6 +1,6 @@
 {
   "name": "react-promised-component",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A mechanism to generate promised base components in React",
   "main": "dist/index.js",
   "scripts": {

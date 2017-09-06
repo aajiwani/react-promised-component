@@ -24,23 +24,36 @@ If you want to have a look at generator
 ## Usage
 
 ```js
-<PromisedComponent
-    promise_prop={this.promiseGenerator.bind(this)}
-    promise_prop_params={this.promiseParams.bind(this)}
-  />
+  <PromisedComponent
+      promise_prop={this.promiseGenerator.bind(this)}
+      promise_prop_params={this.promiseParams.bind(this)}
+      onError={(error) => { /* Do somethig with error */ }}
+      onSuccess={(result) => { /* Do somethig with result */ }}
+    />
 
-// promise_prop: the method that generates a new promise
-// promise_prop_params: the method that can generate parameters and magically supply it to promise creator
-// promise_prop_check_result_errors: the method to check for value, if for some reason value may contain any errors!
+  // promise_prop (required): the method that generates a new promise
+  // promise_prop_params (optional): the method that can generate parameters and magically supply it to promise creator
+  // onError (optional): callback to notify error case with error as parameter
+  // onSuccess (optional): callback to notify success case with result as parameter
 ```
 
 ## Surprise
 
-You can leverage a retry on promise if you want to without any fuss. Please refer to this repo for more details.
+You can leverage a retry on promise if you want to without any fuss.
+
+```js
+  <PromisedReactComponent
+    promise_name={() => Promise.resolve(true)}
+    ref={inst => (this.scrInst = inst)}
+  />
+
+  // Later in the code
+  this.scrInst.retryPromise();
+```
 
 ## License
 
-MIT © [Amir Ali Jiwani]()
+MIT © [Amir Ali Jiwani](mailto:amirali.jiwani89@gmail.com)
 
 
 [npm-image]: https://badge.fury.io/js/react-promised-component.svg
