@@ -1,6 +1,6 @@
 {
   "name": "react-promised-component",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A mechanism to generate promised base components in React",
   "main": "dist/index.js",
   "scripts": {
@@ -29,8 +29,8 @@
   },
   "homepage": "https://github.com/aajiwani/react-promised-component#readme",
   "dependencies": {
-    "ramda": "^0.24.1",
-    "react": "^15.6.1"
+    "ramda": "^0.25.0",
+    "react": "^16.1.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
