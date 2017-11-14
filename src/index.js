@@ -82,8 +82,6 @@ var ReactPromisedComponent = (
     }
 
     render() {
-      if (this.isPromiseCancelled) return null;
-
       if (this.state.loading) {
         return <LoadingComponent />;
       } else if (this.state.error !== null) {
