@@ -1,5 +1,5 @@
 import React from "react";
-import R from "ramda";
+import * as R from "ramda";
 
 var ReactPromisedComponent = (
   promiseProp,
@@ -10,7 +10,7 @@ var ReactPromisedComponent = (
   class extends React.Component {
     constructor(props) {
       super(props);
-      this.state = { loading: true, error: null, value: null };
+      this.state = {loading: true, error: null, value: null};
       this.isPromiseCancelled = false;
     }
 
@@ -48,17 +48,17 @@ var ReactPromisedComponent = (
 
     executePromise(params) {
       if (this.isPromiseCancelled) return;
-      this.setState({ loading: true, error: null, value: null });
+      this.setState({loading: true, error: null, value: null});
 
       this.props[promiseProp](params).then(
         value => {
           if (this.isPromiseCancelled) return;
-          this.setState({ loading: false, value: value });
+          this.setState({loading: false, value: value});
           this.fireSuccessHandler(value);
         },
         error => {
           if (this.isPromiseCancelled) return;
-          this.setState({ loading: false, error: error });
+          this.setState({loading: false, error: error});
           this.fireErrorHandler(error);
         }
       );
